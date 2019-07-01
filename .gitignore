@@ -1,4 +1,6 @@
+/local/
 /logs/
+/.settings/
 /app.cfg
 /.project
 /.pydevproject
