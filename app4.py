@@ -16,9 +16,9 @@ class App():
     def __init__(self):
         self._config = Config('app')
         self._cfg = self._config.get_config_parser()
-        
-    
-    def set_language(self, language):
+        self.set_translation()
+  
+    def set_translation(self, language="en"):
         """
         configures the requested translation (parameter language) and
         sets the global function alias _() to either
@@ -32,7 +32,7 @@ class App():
             return 
 
         localedir = self._cfg[Config.PATHS][Config.DIR_LOCALE]
-
+        
         try:
             lang = gettext.translation(self._config.get_app(), localedir=localedir, languages=[language])
             lang.install()                          # installs gettext function _() to language 'language'
@@ -44,12 +44,15 @@ class App():
         
         print(_("environment variable '{}' not set").format('LANGUAGE'))
         
-    def run(self, language):
+    def run(self):
         
-        self.set_language(language)
         self.print_test()
+        self.set_translation("de")
+        self.print_test()
+        self.set_translation("fr")
+        self.print_test()
+
 
 if __name__ == '__main__':
     app = App()
-    language='fr'
-    app.run(language)
+    app.run()
