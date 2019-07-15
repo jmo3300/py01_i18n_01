@@ -1,10 +1,16 @@
 # coding:utf-8
 
 import os
+from os.path import abspath, dirname, join
 import logging
 from configparser import ConfigParser
 
-class Config:
+class Constants:
+    """
+    Extract of all constants used within configuration context. Class Config should be the only subclass.
+    Constants are used in form "Config.<CONSTANT_NAME>"
+    The separation of constants and code increases/should increase the handling during development.
+    """
     
     GENERAL = 'general'
 
@@ -30,21 +36,27 @@ class Config:
     DIR_LOGS = 'dir.logs'
     DIR_LOGS_DEFAULTNAME = 'logs'
 
-    _app = None
-    _config_filename = None
-    _log = None
+class Config(Constants):
+    """
+    Inititializes / Provides appropriate access methods to 
+    
+    - cfg file
+    - paths
+    - log
+    
+    """
 
-    cfg = ConfigParser(interpolation=None)
+    cfg = ConfigParser()
 
     def __init__(self, app):
         
         self._app = app
 
-        self._config_filename = self.get_app() + '.cfg'
+        self._cfg_filename = join(dirname(abspath(__file__)), self.get_app() + ".cfg")
 
         try:
-            with open(self._config_filename):
-                self.cfg.read(self._config_filename)
+            with open(self._cfg_filename):
+                self.cfg.read(self._cfg_filename)
         except IOError:
             self._create_config()
 
@@ -54,7 +66,7 @@ class Config:
     
     def _create_config(self):
 
-        root_directory = os.getcwd()
+        root_directory = dirname(abspath(__file__))
         locale_directory = os.path.join(root_directory, Config.DIR_LOCALE_DEFAULTNAME)
         logs_directory = os.path.join(root_directory, Config.DIR_LOGS_DEFAULTNAME)
 
@@ -96,17 +108,17 @@ class Config:
         return self._log
     
     def get_config_filename(self):
-        return self._config_filename
+        return self._cfg_filename
     
     def get_config_parser(self):
         return self.cfg
 
     def check_paths(self):
-
         self.check_path(self.cfg[Config.PATHS][Config.DIR_LOGS])
 
     def check_path(self, directory):
+        path = join(dirname(abspath(__file__)), directory)
         try:
-            os.makedirs(directory)
+            os.makedirs(path)
         except FileExistsError:
             pass

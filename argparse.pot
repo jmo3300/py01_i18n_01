@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-07-12 18:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp1252\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: c:/dev/python37/Lib/argparse.py:297
+msgid "usage: "
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:839
+msgid ".__call__() not defined"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1142
+msgid "unknown parser %(parser_name)r (choices: %(choices)s)"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1196
+msgid "argument \"-\" with mode %r"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1204
+msgid "can't open '%s': %s"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1408
+msgid "cannot merge actions - two groups are named %r"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1446
+msgid "'required' is an invalid argument for positionals"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1468
+msgid "invalid option string %(option)r: must start with a character %(prefix_chars)r"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1488
+msgid "dest= is required for options like %r"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1505
+msgid "invalid conflict_resolution value: %r"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1589
+msgid "mutually exclusive arguments must be optional"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1652
+msgid "positional arguments"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1653
+msgid "optional arguments"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1668
+msgid "show this help message and exit"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1699
+msgid "cannot have multiple subparser arguments"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1751 c:/dev/python37/Lib/argparse.py:2257
+msgid "unrecognized arguments: %s"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1848
+msgid "not allowed with argument %s"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:1894 c:/dev/python37/Lib/argparse.py:1908
+msgid "ignored explicit argument %r"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2015
+msgid "the following arguments are required: %s"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2030
+msgid "one of the arguments %s is required"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2073
+msgid "expected one argument"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2074
+msgid "expected at most one argument"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2075
+msgid "expected at least one argument"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2137
+msgid "ambiguous option: %(option)s could match %(matches)s"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2200
+msgid "unexpected option string: %s"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2397
+msgid "%r is not callable"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2414
+msgid "invalid %(type)s value: %(value)r"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2425
+msgid "invalid choice: %(value)r (choose from %(choices)s)"
+msgstr ""
+
+#: c:/dev/python37/Lib/argparse.py:2501
+msgid ""
+"%(prog)s: error: %(message)s\n"
+msgstr ""
+

@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>app3 module &#8212; i18n 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="config module" href="config.html" />
+    <link rel="prev" title="app2 module" href="app2.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="config module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="app2.html" title="app2 module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">i18n 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">py01_i18n_01</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-app3">
+<span id="app3-module"></span><h1>app3 module<a class="headerlink" href="#module-app3" title="Permalink to this headline">¶</a></h1>
+<p>Simultaneous implementation of class-based and non-class-based gettext</p>
+<div class="section" id="problem-implementation-with-class-based-gettext-argparse-with-non-class-based-gettext">
+<h2>Problem: implementation with class-based gettext, argparse with non-class-based gettext<a class="headerlink" href="#problem-implementation-with-class-based-gettext-argparse-with-non-class-based-gettext" title="Permalink to this headline">¶</a></h2>
+<p>In course of an implementation the class-based gettext has been applied. 
+Then, argparse has been added to the implementation. 
+As i18n solution for argparse only non-class-based gettext solutions has been finding.
+For guarding the former implementation a solution for using simultaneously both approaches has been searching.</p>
+</div>
+<div class="section" id="solution-simultaneous-usage-appliance-of-class-based-and-non-class-based-gettext">
+<h2>Solution: simultaneous usage / appliance of class-based and non-class-based gettext<a class="headerlink" href="#solution-simultaneous-usage-appliance-of-class-based-and-non-class-based-gettext" title="Permalink to this headline">¶</a></h2>
+<p>class-based gettext uses an instance of <a href="#id1"><span class="problematic" id="id2">*</span></a>Translation class
+non-class-based gettext uses an environment variable (LC_MESSAGES is used in this app)</p>
+<p>In case of argparse usage/help-output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Starten</span> <span class="n">mit</span><span class="p">:</span><span class="n">app3</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span> <span class="n">filename</span>
+
+<span class="n">Positionsargumente</span><span class="p">:</span>
+  <span class="n">filename</span>
+
+<span class="n">optionale</span> <span class="n">Argumente</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>       <span class="n">zeige</span> <span class="n">diese</span> <span class="n">Hilfe</span><span class="o">-</span><span class="n">Nachricht</span> <span class="n">an</span> <span class="n">und</span> <span class="n">beende</span> <span class="n">das</span> <span class="n">Programm</span>
+  <span class="o">-</span><span class="n">o</span><span class="p">,</span> <span class="o">--</span><span class="n">overwrite</span>  <span class="n">vorhandene</span> <span class="s2">&quot;Stichproben&quot;</span><span class="o">-</span><span class="n">Tabelle</span> <span class="n">überschreiben</span>
+  <span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="o">--</span><span class="n">templates</span>  <span class="n">Erzeuge</span> <span class="n">Vorlagen</span><span class="o">-</span><span class="n">Dateien</span>
+  <span class="o">-</span><span class="n">v</span><span class="p">,</span> <span class="o">--</span><span class="n">verbose</span>    <span class="n">Erhöhe</span> <span class="n">Detaillierung</span> <span class="n">der</span> <span class="n">Programm</span><span class="o">-</span><span class="n">Meldungen</span>
+</pre></div>
+</div>
+<p>All translations come from domain ‘argparse’ (file locale/de/LC_MESSAGES/argparse.mo) 
+except the help messages of the optional arguments which come from domain ‘app’ (file locale/de/LC_MESSAGES/app.mo)</p>
+<p>So, for getting a homogeneous translation output both solutions have to be serving separately.
+In the run function all variances are tried</p>
+<ul class="simple">
+<li><p>homogeneous output in default language</p></li>
+<li><p>homogeneous output in foreign language</p></li>
+<li><p>mixed output in default and in foreign language</p></li>
+</ul>
+</div>
+<div class="section" id="run-this-application-with-h-option">
+<h2>Run this application with -h option<a class="headerlink" href="#run-this-application-with-h-option" title="Permalink to this headline">¶</a></h2>
+<p>It’s the best way to see the mixture of argparse-based and application-based translations.</p>
+<div class="section" id="i18n-apply-class-based-gettext">
+<h3>i18n - apply class-based gettext<a class="headerlink" href="#i18n-apply-class-based-gettext" title="Permalink to this headline">¶</a></h3>
+<p>Create and run the App class
+the run consists of</p>
+<ol class="arabic simple">
+<li><p>init language</p></li>
+<li><p>init translations</p></li>
+<li><p>print tests while changing languages and translations</p></li>
+</ol>
+<p>In preparation, the translations has been building with pygettext/poedit.</p>
+<p>The built translation files reside in the appropriate structure where</p>
+<dl class="field-list simple">
+<dt class="field-odd">&lt;language&gt;</dt>
+<dd class="field-odd"><p>is the code of the appropriate language and</p>
+</dd>
+<dt class="field-even">&lt;domain&gt;</dt>
+<dd class="field-even"><p>is always ‘app’</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">locale</span><span class="o">/&lt;</span><span class="n">language</span><span class="o">&gt;/</span><span class="n">LC_MESSAGES</span><span class="o">/&lt;</span><span class="n">domain</span><span class="o">&gt;.</span><span class="n">mo</span> <span class="p">(</span><span class="n">compiled</span> <span class="n">translation</span><span class="p">)</span>
+<span class="n">locale</span><span class="o">/&lt;</span><span class="n">language</span><span class="o">&gt;/</span><span class="n">LC_MESSAGES</span><span class="o">/&lt;</span><span class="n">domain</span><span class="o">&gt;.</span><span class="n">po</span> <span class="p">(</span><span class="n">translation</span> <span class="ow">in</span> <span class="n">plain</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So, appropriate gettext parameters are</p>
+<dl class="field-list simple">
+<dt class="field-odd">domain</dt>
+<dd class="field-odd"><p>‘app’</p>
+</dd>
+<dt class="field-even">localedir</dt>
+<dd class="field-even"><p>‘locale’</p>
+</dd>
+<dt class="field-odd">languages</dt>
+<dd class="field-odd"><p>[&lt;language&gt;]</p>
+</dd>
+</dl>
+<p>For testing purposes the script is using the following languages/translations</p>
+<dl class="field-list simple">
+<dt class="field-odd">en</dt>
+<dd class="field-odd"><p>is the default language (no translation exists)</p>
+</dd>
+<dt class="field-even">de</dt>
+<dd class="field-even"><p>has a translation</p>
+</dd>
+<dt class="field-odd">fr</dt>
+<dd class="field-odd"><p>has a translation</p>
+</dd>
+<dt class="field-even">es</dt>
+<dd class="field-even"><p>no translation exists (triggers fallback to default language)</p>
+</dd>
+</dl>
+<p>(until here same features as app1, furthermore:)</p>
+<p>Configuration by class Config (and so via cfg-file app.cfg)</p>
+<p>(until here same features as app2, furthermore:)</p>
+</div>
+<div class="section" id="i18n-for-argparse">
+<h3>i18n for argparse<a class="headerlink" href="#i18n-for-argparse" title="Permalink to this headline">¶</a></h3>
+<p>non-class-based solution as described in 
+post 5 of <a class="reference external" href="https://stackoverflow.com/questions/22951442/how-to-make-pythons-argparse-generate-non-english-text">https://stackoverflow.com/questions/22951442/how-to-make-pythons-argparse-generate-non-english-text</a>
+works properly for argparse but not for the individual help messages of the added arguments.</p>
+<p>In the following solution</p>
+<blockquote>
+<div><p>the translation of the internal argparse messages</p>
+<blockquote>
+<div><p>is done by using a seperate domain (here ‘argparse’) via none-class-based gettext and</p>
+</div></blockquote>
+<p>the translation of the individual argparse help messages</p>
+<blockquote>
+<div><p>is done by using the application domain (here ‘app’) via class-based gettext</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="class">
+<dt id="app3.App">
+<em class="property">class </em><code class="sig-prename descclassname">app3.</code><code class="sig-name descname">App</code><a class="headerlink" href="#app3.App" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="app3.App.get_language">
+<code class="sig-name descname">get_language</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app3.App.get_language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app3.App.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app3.App.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app3.App.set_LC_MESSAGES">
+<code class="sig-name descname">set_LC_MESSAGES</code><span class="sig-paren">(</span><em class="sig-param">language='en'</em><span class="sig-paren">)</span><a class="headerlink" href="#app3.App.set_LC_MESSAGES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app3.App.set_language">
+<code class="sig-name descname">set_language</code><span class="sig-paren">(</span><em class="sig-param">language='en'</em><span class="sig-paren">)</span><a class="headerlink" href="#app3.App.set_language" title="Permalink to this definition">¶</a></dt>
+<dd><p>set language as requested resp. to the default language if no language parameter is passed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app3.App.set_translation">
+<code class="sig-name descname">set_translation</code><span class="sig-paren">(</span><em class="sig-param">language='en'</em><span class="sig-paren">)</span><a class="headerlink" href="#app3.App.set_translation" title="Permalink to this definition">¶</a></dt>
+<dd><p>configure the translation
+set the global function alias _() to either</p>
+<blockquote>
+<div><p>the requested language or to
+the default language in case of error of in case of default language is requested</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="app3.App.test_parse">
+<code class="sig-name descname">test_parse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app3.App.test_parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app3.App.test_print">
+<code class="sig-name descname">test_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app3.App.test_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>print message in configured/currently chosen translation</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">app3 module</a><ul>
+<li><a class="reference internal" href="#problem-implementation-with-class-based-gettext-argparse-with-non-class-based-gettext">Problem: implementation with class-based gettext, argparse with non-class-based gettext</a></li>
+<li><a class="reference internal" href="#solution-simultaneous-usage-appliance-of-class-based-and-non-class-based-gettext">Solution: simultaneous usage / appliance of class-based and non-class-based gettext</a></li>
+<li><a class="reference internal" href="#run-this-application-with-h-option">Run this application with -h option</a><ul>
+<li><a class="reference internal" href="#i18n-apply-class-based-gettext">i18n - apply class-based gettext</a></li>
+<li><a class="reference internal" href="#i18n-for-argparse">i18n for argparse</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="app2.html"
+                        title="previous chapter">app2 module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="config.html"
+                        title="next chapter">config module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/app3.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="config module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="app2.html" title="app2 module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">i18n 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >py01_i18n_01</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, jmo3300.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

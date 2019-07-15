@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>config module &#8212; i18n 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="app3 module" href="app3.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="app3.html" title="app3 module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">i18n 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">py01_i18n_01</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-config">
+<span id="config-module"></span><h1>config module<a class="headerlink" href="#module-config" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="config.Config">
+<em class="property">class </em><code class="sig-prename descclassname">config.</code><code class="sig-name descname">Config</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#config.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#config.Constants" title="config.Constants"><code class="xref py py-class docutils literal notranslate"><span class="pre">config.Constants</span></code></a></p>
+<p>Inititializes / Provides appropriate access methods to</p>
+<ul class="simple">
+<li><p>cfg file</p></li>
+<li><p>paths</p></li>
+<li><p>log</p></li>
+</ul>
+<dl class="attribute">
+<dt id="config.Config.cfg">
+<code class="sig-name descname">cfg</code><em class="property"> = &lt;configparser.ConfigParser object&gt;</em><a class="headerlink" href="#config.Config.cfg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="config.Config.check_path">
+<code class="sig-name descname">check_path</code><span class="sig-paren">(</span><em class="sig-param">directory</em><span class="sig-paren">)</span><a class="headerlink" href="#config.Config.check_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="config.Config.check_paths">
+<code class="sig-name descname">check_paths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#config.Config.check_paths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="config.Config.get_app">
+<code class="sig-name descname">get_app</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#config.Config.get_app" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="config.Config.get_config_filename">
+<code class="sig-name descname">get_config_filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#config.Config.get_config_filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="config.Config.get_config_parser">
+<code class="sig-name descname">get_config_parser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#config.Config.get_config_parser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="config.Config.get_log">
+<code class="sig-name descname">get_log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#config.Config.get_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="config.Constants">
+<em class="property">class </em><code class="sig-prename descclassname">config.</code><code class="sig-name descname">Constants</code><a class="headerlink" href="#config.Constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Extract of all constants used within configuration context. Class Config should be the only subclass.
+Constants are used in form “Config.&lt;CONSTANT_NAME&gt;”
+The separation of constants and code increases/should increase the handling during development.</p>
+<dl class="attribute">
+<dt id="config.Constants.DIR_LOCALE">
+<code class="sig-name descname">DIR_LOCALE</code><em class="property"> = 'dir.locale'</em><a class="headerlink" href="#config.Constants.DIR_LOCALE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.DIR_LOCALE_DEFAULTNAME">
+<code class="sig-name descname">DIR_LOCALE_DEFAULTNAME</code><em class="property"> = 'locale'</em><a class="headerlink" href="#config.Constants.DIR_LOCALE_DEFAULTNAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.DIR_LOGS">
+<code class="sig-name descname">DIR_LOGS</code><em class="property"> = 'dir.logs'</em><a class="headerlink" href="#config.Constants.DIR_LOGS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.DIR_LOGS_DEFAULTNAME">
+<code class="sig-name descname">DIR_LOGS_DEFAULTNAME</code><em class="property"> = 'logs'</em><a class="headerlink" href="#config.Constants.DIR_LOGS_DEFAULTNAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.GENERAL">
+<code class="sig-name descname">GENERAL</code><em class="property"> = 'general'</em><a class="headerlink" href="#config.Constants.GENERAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.LANGUAGE">
+<code class="sig-name descname">LANGUAGE</code><em class="property"> = 'language'</em><a class="headerlink" href="#config.Constants.LANGUAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.LANGUAGES">
+<code class="sig-name descname">LANGUAGES</code><em class="property"> = ['en', 'de', 'fr']</em><a class="headerlink" href="#config.Constants.LANGUAGES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.LANGUAGE_DE">
+<code class="sig-name descname">LANGUAGE_DE</code><em class="property"> = 'de'</em><a class="headerlink" href="#config.Constants.LANGUAGE_DE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.LANGUAGE_DEFAULT">
+<code class="sig-name descname">LANGUAGE_DEFAULT</code><em class="property"> = 'en'</em><a class="headerlink" href="#config.Constants.LANGUAGE_DEFAULT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.LANGUAGE_EN">
+<code class="sig-name descname">LANGUAGE_EN</code><em class="property"> = 'en'</em><a class="headerlink" href="#config.Constants.LANGUAGE_EN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.LANGUAGE_FR">
+<code class="sig-name descname">LANGUAGE_FR</code><em class="property"> = 'fr'</em><a class="headerlink" href="#config.Constants.LANGUAGE_FR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.LC_MESSAGES">
+<code class="sig-name descname">LC_MESSAGES</code><em class="property"> = 'LC_MESSAGES'</em><a class="headerlink" href="#config.Constants.LC_MESSAGES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.LOCALE">
+<code class="sig-name descname">LOCALE</code><em class="property"> = 'locale'</em><a class="headerlink" href="#config.Constants.LOCALE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="config.Constants.PATHS">
+<code class="sig-name descname">PATHS</code><em class="property"> = 'paths'</em><a class="headerlink" href="#config.Constants.PATHS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="app3.html"
+                        title="previous chapter">app3 module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/config.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="app3.html" title="app3 module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">i18n 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >py01_i18n_01</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, jmo3300.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

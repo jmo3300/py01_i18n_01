@@ -1,13 +1,13 @@
 # coding:utf-8
 '''
-tests for the module app1
+tests for the module app2
 '''
 import unittest
 import os
 import sys
 from contextlib import contextmanager
 from io import StringIO
-import app2
+import app2 as app
 
 class Test(unittest.TestCase):
 
@@ -22,60 +22,65 @@ class Test(unittest.TestCase):
             sys.stdout, sys.stderr = old_out, old_err
 
     def setUp(self):
-        self.app = app2.App()
-        app2_path = os.path.dirname(app2.__file__)
-        os.chdir(app2_path)
+        self.app = app.App()
+        app_path = os.path.dirname(app.__file__)
+        os.chdir(app_path)
 
     def tearDown(self):
         self.app = None
 
-    def test_language_empty(self):
-        
-        with self.captured_output() as (out, err):
-            self.app.set_language("")
-            self.app.print_test()
-        out_msg = out.getvalue().strip()
-        err_msg = err.getvalue().strip()
-        self.assertEqual(err_msg, "")
-        self.assertEqual(out_msg, "environment variable 'LANGUAGE' not set", "empty language error")
 
     def test_language_default(self):
-        
+
+        self.app.set_language()
         with self.captured_output() as (out, err):
-            self.app.set_language("en")
-            self.app.print_test()
+            self.app.set_translation()
+            self.app.test_print()
         out_msg = out.getvalue().strip()
         err_msg = err.getvalue().strip()
-        self.assertEqual(err_msg, "")
-        self.assertEqual(out_msg, "environment variable 'LANGUAGE' not set", "default language error")
-
+#         print(out_msg)
+#         print(err_msg)
+        self.assertEqual(err_msg, "[Errno 2] No translation file found for domain: 'app'", "unknown default language error")
+        self.assertEqual(out_msg, "This is a test message. Translated from default language 'en' to 'en'")
 
     def test_language_known_de(self):
- 
+
+        language = "de" 
+        self.app.set_language(language)
         with self.captured_output() as (out, err):
-            self.app.set_language("de")
-            self.app.print_test()
+            self.app.set_translation(language)
+            self.app.test_print()
         out_msg = out.getvalue().strip()
         err_msg = err.getvalue().strip()
+#         print(out_msg)
+#         print(err_msg)
         self.assertEqual(err_msg, "", "error")
-        self.assertEqual(out_msg, "Umgebungsvariable 'LANGUAGE' nicht festgelegt", "known language 'de' error")
+        self.assertEqual(out_msg, "Dieses ist eine Test-Meldung. Übersetzt aus der Vorgabe-Sprache 'en' nach 'de'")
 
     def test_language_known_fr(self):
  
+        language = "fr" 
+        self.app.set_language(language)
         with self.captured_output() as (out, err):
-            self.app.set_language("fr")
-            self.app.print_test()
+            self.app.set_translation(language)
+            self.app.test_print()
         out_msg = out.getvalue().strip()
         err_msg = err.getvalue().strip()
+#         print(out_msg)
+#         print(err_msg)
         self.assertEqual(err_msg, "", "error")
-        self.assertEqual(out_msg, "variable de l'environnement 'LANGUAGE' ne pas definé", "known language 'fr' error")
+        self.assertEqual(out_msg, "C'est une message de test. Traduit de la langue par défault 'en' en fr'")
 
     def test_language_unknown_es(self):
 
+        language = "es" 
+        self.app.set_language(language)
         with self.captured_output() as (out, err):
-            self.app.set_language("es")
-            self.app.print_test()
+            self.app.set_translation(language)
+            self.app.test_print()
         out_msg = out.getvalue().strip()
         err_msg = err.getvalue().strip()
+#         print(out_msg)
+#         print(err_msg)
         self.assertEqual(err_msg, "[Errno 2] No translation file found for domain: 'app'", "unknown language 'es' error")
-        self.assertEqual(out_msg, "environment variable 'LANGUAGE' not set", "unknown language 'es' error")
+        self.assertEqual(out_msg, "This is a test message. Translated from default language 'en' to 'es'")

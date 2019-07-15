@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>app1 module &#8212; i18n 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="app2 module" href="app2.html" />
+    <link rel="prev" title="py01_i18n_01" href="modules.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="app2.html" title="app2 module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="py01_i18n_01"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">i18n 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">py01_i18n_01</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-app1">
+<span id="app1-module"></span><h1>app1 module<a class="headerlink" href="#module-app1" title="Permalink to this headline">¶</a></h1>
+<p>Shows how to use class-based gettext.</p>
+<p>Creates an instance of the class App 
+and executes its run method using several languages/translations.</p>
+<p>Eeach run consists of</p>
+<ol class="arabic simple">
+<li><p>language initialization,</p></li>
+<li><p>translations initialization,</p></li>
+<li><p>print of a test message.</p></li>
+</ol>
+<p>For orientation purposes, the application <strong>logs</strong></p>
+<ul class="simple">
+<li><p>each language change</p></li>
+<li><p>each translation initialization failure (in real live, only a fallback to default language should happen)</p></li>
+</ul>
+<p>In preparation, the translations has been building with pygettext/poedit.</p>
+<p>The <strong>built translation files</strong> reside in the appropriate structure where</p>
+<dl class="field-list simple">
+<dt class="field-odd">&lt;language&gt;</dt>
+<dd class="field-odd"><p>is the code of the appropriate language and</p>
+</dd>
+<dt class="field-even">&lt;domain&gt;</dt>
+<dd class="field-even"><p>is always ‘app’</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">locale</span><span class="o">/&lt;</span><span class="n">language</span><span class="o">&gt;/</span><span class="n">LC_MESSAGES</span><span class="o">/&lt;</span><span class="n">domain</span><span class="o">&gt;.</span><span class="n">mo</span> <span class="p">(</span><span class="n">compiled</span> <span class="n">translation</span><span class="p">)</span>
+<span class="n">locale</span><span class="o">/&lt;</span><span class="n">language</span><span class="o">&gt;/</span><span class="n">LC_MESSAGES</span><span class="o">/&lt;</span><span class="n">domain</span><span class="o">&gt;.</span><span class="n">po</span> <span class="p">(</span><span class="n">translation</span> <span class="ow">in</span> <span class="n">plain</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So, appropriate gettext parameters are</p>
+<dl class="field-list simple">
+<dt class="field-odd">domain</dt>
+<dd class="field-odd"><p>‘app’</p>
+</dd>
+<dt class="field-even">localedir</dt>
+<dd class="field-even"><p>‘locale’</p>
+</dd>
+<dt class="field-odd">languages</dt>
+<dd class="field-odd"><p>[&lt;language&gt;]</p>
+</dd>
+</dl>
+<p>For <strong>testing purposes</strong> the script is using the following languages/translations</p>
+<dl class="field-list simple">
+<dt class="field-odd">en</dt>
+<dd class="field-odd"><p>is the default language (no translation exists)</p>
+</dd>
+<dt class="field-even">de</dt>
+<dd class="field-even"><p>has a translation</p>
+</dd>
+<dt class="field-odd">fr</dt>
+<dd class="field-odd"><p>has a translation</p>
+</dd>
+<dt class="field-even">es</dt>
+<dd class="field-even"><p>no translation exists (triggers fallback to default language)</p>
+</dd>
+</dl>
+<p>So, <strong>expected result</strong> for each language is</p>
+<dl class="field-list simple">
+<dt class="field-odd">en</dt>
+<dd class="field-odd"><p>test message in default language English, error message due to missing (English) translation</p>
+</dd>
+<dt class="field-even">de</dt>
+<dd class="field-even"><p>test message in German language</p>
+</dd>
+<dt class="field-odd">fr</dt>
+<dd class="field-odd"><p>test message in French language</p>
+</dd>
+<dt class="field-even">es</dt>
+<dd class="field-even"><p>test message in default language English, error message due to missing (Spanish) translation</p>
+</dd>
+</dl>
+<p>These cases can be also checked by running the <strong>unit-test script</strong> tests/test_app1_01.py.</p>
+<dl class="class">
+<dt id="app1.App">
+<em class="property">class </em><code class="sig-prename descclassname">app1.</code><code class="sig-name descname">App</code><a class="headerlink" href="#app1.App" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Application for showing how to use class-based gettext</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>   
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>        <span class="c1"># run with default language</span>
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;de&#39;</span><span class="p">)</span>    <span class="c1"># run with german language</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="app1.App.LANGUAGE_DEFAULT">
+<code class="sig-name descname">LANGUAGE_DEFAULT</code><em class="property"> = 'en'</em><a class="headerlink" href="#app1.App.LANGUAGE_DEFAULT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app1.App.get_language">
+<code class="sig-name descname">get_language</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app1.App.get_language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app1.App.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">language='en'</em><span class="sig-paren">)</span><a class="headerlink" href="#app1.App.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>run prepare and conduct a test</p>
+<ul class="simple">
+<li><p>set language</p></li>
+<li><p>set translation</p></li>
+<li><p>print a test message</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="app1.App.set_language">
+<code class="sig-name descname">set_language</code><span class="sig-paren">(</span><em class="sig-param">language='en'</em><span class="sig-paren">)</span><a class="headerlink" href="#app1.App.set_language" title="Permalink to this definition">¶</a></dt>
+<dd><p>set language as requested resp. to the default language if no language parameter is passed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app1.App.set_translation">
+<code class="sig-name descname">set_translation</code><span class="sig-paren">(</span><em class="sig-param">language='en'</em><span class="sig-paren">)</span><a class="headerlink" href="#app1.App.set_translation" title="Permalink to this definition">¶</a></dt>
+<dd><p>configure the translation
+set the global function alias _() to either</p>
+<ul class="simple">
+<li><p>the requested language or to</p></li>
+<li><p>the default language in case of error of in case of default language is requested</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="app1.App.test_print">
+<code class="sig-name descname">test_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app1.App.test_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>print message in configured/currently chosen translation</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="previous chapter">py01_i18n_01</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="app2.html"
+                        title="next chapter">app2 module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/app1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="app2.html" title="app2 module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="py01_i18n_01"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">i18n 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >py01_i18n_01</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, jmo3300.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>
